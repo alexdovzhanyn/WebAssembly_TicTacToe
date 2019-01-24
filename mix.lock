@@ -1,4 +1,5 @@
 %{
   "binary": {:hex, :binary, "0.0.5", "20d816f7274ea34f1b673b4cff2fdb9ebec9391a7a68c349070d515c66b1b2cf", [:mix], [], "hexpm"},
   "decimal": {:hex, :decimal, "1.6.0", "bfd84d90ff966e1f5d4370bdd3943432d8f65f07d3bab48001aebd7030590dcc", [:mix], [], "hexpm"},
+  "wasp_vm": {:hex, :wasp_vm, "0.8.1", "44207ba40b288750ee59e0d3b0addead4593a917a468c9a6539d074671f7e2eb", [:mix], [{:binary, "~> 0.0.5", [hex: :binary, repo: "hexpm", optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: false]}], "hexpm"},
 }

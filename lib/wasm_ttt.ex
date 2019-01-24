@@ -24,7 +24,7 @@ defmodule WasmTtt do
     IO.puts "This game of Tic-Tac-Toe burned #{gas} gas."
   end
 
-  defhost :get_move_for_player, [player] do
+  defhost get_move_for_player(player) do
     p = if player == 0, do: "X", else: "O"
 
     {tile, _} =
@@ -35,7 +35,7 @@ defmodule WasmTtt do
     tile
   end
 
-  defhost :draw_board do
+  defhost draw_board do
     board = WaspVM.HostFunction.API.get_memory(ctx, "game_mem", 0, 9)
 
     IO.puts ""
@@ -53,11 +53,11 @@ defmodule WasmTtt do
     end)
   end
 
-  defhost :invalid_move do
+  defhost invalid_move do
     IO.puts "Invalid Move! Try again."
   end
 
-  defhost :log, [a] do
+  defhost log(a) do
     IO.puts("Log: #{a}")
   end
 
