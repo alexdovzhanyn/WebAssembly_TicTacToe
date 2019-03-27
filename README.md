@@ -1,6 +1,6 @@
 # WebAssembly Tic Tac Toe
 
-A simple tic tac toe game built with WebAssembly and WaspVM
+A simple tic tac toe game built with WebAssembly and AlchemyVM
 
 ## Usage
 

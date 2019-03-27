@@ -1,6 +1,6 @@
 defmodule WasmTtt do
   use Application
-  use WaspVM.HostFunction
+  use AlchemyVM.HostFunction
   require IEx
 
   def start(_type, _args) do
@@ -9,15 +9,15 @@ defmodule WasmTtt do
 
   def run_game do
     # Start a fresh VM instance
-    {:ok, pid} = WaspVM.start()
+    {:ok, pid} = AlchemyVM.start()
 
     # Generate host functions based on the current module
-    imports = WaspVM.HostFunction.create_imports(__MODULE__)
+    imports = AlchemyVM.HostFunction.create_imports(__MODULE__)
 
     # Load a WebAssembly module into the VM from a .wasm file
-    WaspVM.load_file(pid, "priv/wasm/tic_tac_toe.wasm", imports)
+    AlchemyVM.load_file(pid, "priv/wasm/tic_tac_toe.wasm", imports)
 
-    {:ok, gas, winning_player} = WaspVM.execute(pid, "play")
+    {:ok, gas, winning_player} = AlchemyVM.execute(pid, "play")
 
     log_winner(winning_player)
 
@@ -36,7 +36,7 @@ defmodule WasmTtt do
   end
 
   defhost draw_board do
-    board = WaspVM.HostFunction.API.get_memory(ctx, "game_mem", 0, 9)
+    board = AlchemyVM.HostFunction.API.get_memory(ctx, "game_mem", 0, 9)
 
     IO.puts ""
 
